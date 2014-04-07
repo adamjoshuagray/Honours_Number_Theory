@@ -16,12 +16,46 @@
 \section*{Question 1}
 Write $ \omega(n) $ for the number of (distinct) prime divisors of $ n $, 
 $ \Omega(n) $ for the number of prime factors of $ n $, counted with 
-repetition. Thus if, $ n = \prod_{j=1}^p_j^{k_j} $, then # \omega(n) = m $,
+repetition. Thus if, $ n = \prod_{j=1}^m p_j^{k_j} $, then $ \omega(n) = m $,
 and $ \Omega(n) = \sum_{j=1}^{m} k_j $.
 \subsubsection*{Part a}
 Prove that $ 2^{\omega(n)} \leq \tau(n) \leq 2^{\Omega(n)} \leq n $ for 
 $ n \geq 2 $.
 \subsubsection*{Part b}
 When does $ \tau(n) = 2^{\omega(n)} $.
+\subsubsection*{Solution}
+\subsubsection*{Part a}
+Firstly we prove that $ 2^\omega(n) \leq \tau(n) $. 
+From the lecture notes we have that if $ n = \prod_{j=1}^m p_j^{k_j} $
+then $ \tau(n) = \prod^{m}_{j=1}(k_j + 1) $ so we can say
+\begin{align}
+	\tau(n) 	&= \prod^{m}_{j=1}\underbrace{(k_j + 1)}_{\geq 2} \nonumber \\
+				\label{ineq:qn1a}
+				&\leq \prod^{m}_{j=1} 2 \\
+				&= 2^m \nonumber \\
+				&= 2^{\omega(n)} \nonumber
+\end{align}
+so $ 2^{\omega(n)} \leq \tau(n) $.
+
+We now show that $ \tau(n) \leq 2^{\Omega(n)} $.
+See that 
+\begin{align*}
+	2^{\Omega(n)} 	&= 2^{\sum_{j=1}^{m} k_j} \\
+					&= \prod_{j=1}^{m}2^{k_j}
+\end{align*}
+and because for all $ k_j \geq 1 $, $ k_j + 1 \leq 2^{k_j} $.
+then
+\begin{align*}
+	\prod_{j=1}^{m}2^{k_j}	\geq \prod_{j=1}^{m} (k_j + 1) \\
+\end{align*}
+and thus 
+$$
+	\tau(n) \leq 2^{\Omega(n)}.
+$$
+It remains to show that $ 2^{\Omega(n)} \leq n $.
+Because we have that $$ n = \prod_{j=1}^m p_j^{k_j} $$ and $$ 2^{\Omega(n)} = \prod_{j=1}^{m}2^{k_j} $$
+then it is clear because $ 2 \leq k_j $ for all $ j $. 
+
+So we have shown that $ 2^{\omega(n)} \leq \tau(n) \leq 2^{\Omega(n)} \leq n $.
 \end{document}
 
