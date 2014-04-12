@@ -127,7 +127,7 @@ and hence by Mobius inversion
 
 \hrulefill
 
-\subsubsection*{\textcolor{blue}{Part c}}
+\subsubsection*{Part c}
 
 Let $ N^k(n) = n^k $. It is clear that $ N^k $ is completly multiplicative. 
 Also see that $ J_k = \mu * N^k $. So by the result in the notes, since $ N^k $ is 
