@@ -63,7 +63,7 @@ Define the \textbf{Jordan totient function} by
 $$
     n^k\prod_{p|n}(1-p^-k),
 $$
-where, as usual, the product is taken over the primes. This is a generalisation of Euler's
+where, as usual, the product is taken over the primes. This is a generalization of Euler's
 totient function.
 \subsubsection*{Part a}
 Prove that $ J $ is multiplicative.
@@ -100,7 +100,7 @@ $$
 and note that since $ J_k $ is multiplicative, so is $ \gamma_k $.
 
 Therefor it we only need to see consider $ \gamma_k(p^\alpha) $, where $ p $ is prime,
-to characterise $ \gamma_k $.
+to characterize $ \gamma_k $.
 
 Therefore observe that
 \begin{align*}
@@ -124,13 +124,46 @@ and hence by Mobius inversion
 \begin{align*}
     J_k(d) &= \sum_{d|n} \mu(d) \left(\frac{n}{d}\right)^k.
 \end{align*}
+\qed
+\subsubsection*{\textcolor{blue}{Part c}}
+
+Let $ N^k(n) = n^k $. It is clear that $ N^k $ is completely multiplicative. 
+Also see that $ J_k = \mu * N^k $. So by the result in the notes, since $ N^k $ is 
+completely multiplicative $ J_k^{-1} = N^{k} $.
+\qed
 
 \hrulefill
 
-\subsubsection*{Part c}
+\section*{Question 3}
 
-Let $ N^k(n) = n^k $. It is clear that $ N^k $ is completly multiplicative. 
-Also see that $ J_k = \mu * N^k $. So by the result in the notes, since $ N^k $ is 
-completly multiplicative $ J_k^{-1} = N^{k} $.
+Write $ M_2(x) = \sum{ n \leq x } (\mu(n))^2 $.
+
+Hence $ M_2(x) $ counts the number of square free integers $ \leq x $.
+
+\subsubsection*{Part a}
+Explain why $ (\mu(n))^2 = \sum_{m^2 | n} \mu(m) $.
+
+\subsubsection*{Part b}
+Proce that $ M_2(x) = x \sum_{m \leq \sqrt{x}} \frac{\mu(n)}{m^2} - \sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\} $.
+
+\subsubsection*{Part c}
+Deduce that 
+$$
+	M_2(x) = \frac{6}{\pi^2}x + )(\sqrt{x}).
+$$
+
+\subsubsection*{Part d}
+Interpret this result in terms of the proportion of square-free numbers
+in the interval $[ 1, x] $.
+\subsubsection*{Part e}
+Use MAPLE (or otherwise) to count the number of square-free numbers between $ 1 $ and $ 1000 $. (Comment!)
+
+\hrulefill
+
+\subsection*{\textcolor{blue}{Solution}}
+
+\subsubsection*{\textcolor{blue}{Part a}}
+
+
 \end{document}
 
