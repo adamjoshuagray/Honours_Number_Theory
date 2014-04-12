@@ -1,0 +1,117 @@
+\documentclass{unswmaths}
+\usepackage[a4paper]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\begin{document}
+
+\setlength\parindent{0pt}
+
+\fancyfoot[l]{Matthew Kwan, Edward Lee, Adam Gray}
+\fancyfoot[r]{\today}
+\fancyhead[l]{The University of New South Wales}
+\fancyhead[r]{Number Theory - Tutorial 2}
+
+\section*{Question 5}
+Let $ A $ denote the set of all integers of the form, $ 2^r3^s5^t $.
+Evaluate $ \sum_{n \in A} \frac{1}{n} $ and $ \sum_{n\in A} $.
+\subsection*{Solution}
+Let $ \mathbb{N}^0 $ denote the set of natural numbers including 0.
+We can clearly write
+\begin{align*}
+	\sum_{n  \in A} \frac{1}{n} &= \sum_{r,s,t \in \mathbb{N}^0} \frac{1}{2^r3^s5^t}. \\
+\end{align*}
+Now we have that $ \sum_{k=0}^\infty |\ell^{-k}| $ converges for all $ \ell > 1 $,
+so we can write
+\begin{align*}
+	\sum_{r,s,t \in \mathbb{N}^0} \frac{1}{2^r3^s5^t} &= 
+	\left( \sum_{r \in \mathbb{N}^0} \frac{1}{2^r} \right)
+	\left( \sum_{s \in \mathbb{N}^0} \frac{1}{3^s} \right)
+	\left( \sum_{t \in \mathbb{N}^0} \frac{1}{5^t} \right) \\
+	&= \left( \frac{1}{1  -\frac{1}{2}} \right) \left( \frac{1}{1 - \frac{1}{3}} \right) \left( \frac{1}{1-\frac{1}{5}} \right) \\
+	&= \frac{15}{4}.
+\end{align*}
+In a similar manner we get that 
+\begin{align*}
+	\sum_{n  \in A} \frac{1}{n^2} 
+		&= \sum_{r,s,t \in \mathbb{N}^0} \frac{1}{\left(2^r3^s5^t\right)^2} \\
+		&= \sum_{r,s,t \in \mathbb{N}^0} \frac{1}{4^r9^s25^t} \\
+		&=
+			\left( \sum_{r \in \mathbb{N}^0} \frac{1}{4^r} \right)
+			\left( \sum_{s \in \mathbb{N}^0} \frac{1}{9^s} \right)
+			\left( \sum_{t \in \mathbb{N}^0} \frac{1}{25^t} \right) \\
+		&= \left( \frac{1}{1 - \frac{1}{4}} \right) \left( \frac{1}{1 - \frac{1}{9}} \right) \left( \frac{1}{1 - \frac{1}{25}} \right) \\
+		&= \frac{25}{16}.
+\end{align*}
+
+\section*{Question 6}
+A slightly generalised version of Bertrand's postulate states that, for
+$ n \geq 6 $, there are at least 2 primes between $ n $ and $ 2n $. 
+Use this to prove that $ p_{k+2} \leq p_k + p_{k+1} $.
+\subsection*{Solution}
+By this extended Bertrand's postulate we have that
+\begin{align*} 
+	p_{k+2} &< 2p_k \\
+		&< p_{k+1} + p_k \\
+\end{align*}
+We just have to tidy up cases when $ p_k < 6 $.
+See that 
+\begin{align*}
+	2 + 3 &\leq 5 \\
+	3 + 5 &< 11 \\
+	5 + 7 &< 13
+\end{align*}
+
+So we have that $ p_{k+2} \leq p_k + p_{k+1} $ which can be strengthened
+to $ p_{k+2} < p_k + p_{k+1} $ when for $ k > 1 $. \qed
+
+\section*{Question 7}
+\subsubsection*{a} Use Bertrand's Postulate to prove that for 
+$ m \geq 2 $, if $ m! = p_1^{\alpha_1} \ldots p_r^{\alpha_r} $ then $ \alpha_i = 1 $  
+for at least one value of $ i $.
+\subsubsection*{b} Deduce that $ m! $ is never a $ kth $ power 
+for any $ k \geq 2 $.
+
+\subsection*{Solution}
+\subsubsection*{a}
+Write $ m = 2k + 1 $ or $ m = 2k $ for some $ k \in \mathbb{N} $.
+In either case there must exist a prime $ k < p < 2k $. 
+Just considering $ m > 4 $ we have that in the factorization 
+$ m! = m\cdot(m-1)\cdot(m-2)\cdots p \cdots 2 $ there is only 
+one power of $ p $ because for $ p > 2 $ we have that
+$ p^2 > 2p > m > p $. 
+In the language used above, that is simply to say that there 
+exists an $i $ such that $ \alpha_i = 1 $.
+
+To tidy up the remaining cases it is clear to see that
+\begin{align*}
+	4! &= 1 \cdot 2 \cdot 3 \cdot 2^2 \\
+	3! &= 1 \cdot 2 \cdot 3 \\
+	2! &= 1 \cdot 2 \\
+	1! &= 1 \\
+\end{align*}
+and so the result holds.
+\qed
+\subsubsection*{b}
+It is clear that for any number of the form $ s = x^k $ with $ x, k \in \mathbb{N} $,  $ s $ must have a prime
+factorization with $ s = p_1^{k\alpha_1} \ldots p_n^{k\alpha_n} $. For $ m! $, however, we have proven that there are prime factors which
+only occur once (not $k > 1 $ times). This is to day $ m! $ cannot be writen in the form
+$ x^k $. \qed
+
+\section*{Question 8}
+Use Bertrand's postulate to prove that for every integer $ k > 2 $, 
+there is a prime p such that $ p < k < 2p $.
+\subsection*{Solution}
+Consider $ r = \left\lfloor \frac{k}{2} \right\rfloor $ with $ k > 2 $.
+We know that there must exist a prime $ p $ such that $ r < p < 2r $. 
+Then we have that $ 2r < 2p $. 
+
+If $ k = 2r $ then we are finished. 
+
+If $ k = 2r + 1 $ then $ p \geq r + 1 $ so $ 2p \geq 2r + 2 $ which implies $ 2p > 2r + 1 $.
+
+In conclusion we have that for all $ k > 2 $ there exists a prime $ p $ such that 
+$ p < k < 2p $. \qed
+
+\end{document}
+
+
