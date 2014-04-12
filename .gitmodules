@@ -1,3 +1,6 @@
 [submodule "Honours_Number_Theory"]
 	path = Honours_Number_Theory
 	url = https://github.com/adamjoshuagray/Honours_Number_Theory
+[submodule "UNSW_Latex"]
+	path = UNSW_Latex
+	url = https://github.com/adamjoshuagray/UNSW_Latex
