@@ -149,7 +149,7 @@ Proce that $ M_2(x) = x \sum_{m \leq \sqrt{x}} \frac{\mu(n)}{m^2} - \sum_{m \leq
 \subsubsection*{Part c}
 Deduce that 
 $$
-	M_2(x) = \frac{6}{\pi^2}x + )(\sqrt{x}).
+	M_2(x) = \frac{6}{\pi^2}x + O(\sqrt{x}).
 $$
 
 \subsubsection*{Part d}
@@ -163,7 +163,36 @@ Use MAPLE (or otherwise) to count the number of square-free numbers between $ 1 
 \subsection*{\textcolor{blue}{Solution}}
 
 \subsubsection*{\textcolor{blue}{Part a}}
+Write $ n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_r^{\alpha_r} $ where $ p_j $ 
+is prime and all $ p_j $ are distinct.
+Without loss of generality assume we can reorder this factorization such that 
+there exists a $ 1 \leq t \leq r $ such that
+when $ j < t $, $ 2 \leq \alpha_j $.
+Then it can be easily seen that
+\begin{align*}
+    \sum_{m^2 | n } \mu(m) &= 1 + \mu(p_1) + \mu(p_2) + \ldots + \mu(p_{t-1}) \\
+        &+ \mu(p_1 p_2) + \mu(p_1 p_3) + \ldots + \mu(p_{t-2} p_{t-1}) \\
+        &+ \mu(p_1 p_2 p_3) + \ldots + \mu( p_{t-3} p_{t-2} p_{t-1}) \\
+        &+ \ldots \\
+        &+ \mu(p_1 p_2 \ldots p_{t-1}) \\
+        &=  \binom{t-1}{0}(-1)^{0} + \binom{t-1}{1} (-1)^{1} + \ldots  \binom{t-1}{t-1}(-1)^{t-1} \\
+        &= \begin{cases}
+               (1-1)^{t-1} = 0 & \text{ where } n \text{ is not squarefree } \\
+               1 & \text{ where } n \text{ is squarefree }
+           \end{cases}
+\end{align*}
+It should be noted that higher powers of primes do not appear in the sum
+because they are not squarefree and hence mobuis function would be $ 0 $ 
+for these numbers.
 
+Since it is clear that 
+\begin{align*}
+    (\mu(n))^2 = \begin{cases}
+        (1-1)^{t-1} = 0 & \text{ where } n \text{ is not squarefree } \\
+        1 & \text{ where } n \text{ is squarefree }
+    \end{cases}
+\end{align*}
+we have shown that $ (\mu(n))^2 = \sum_{m^2 | n} \mu(m) $. \qed
 
 \end{document}
 
