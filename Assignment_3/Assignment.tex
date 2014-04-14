@@ -127,9 +127,30 @@ and hence by Mobius inversion
 \qed
 \subsubsection*{\textcolor{blue}{Part c}}
 
-Let $ N^k(n) = n^k $. It is clear that $ N^k $ is completely multiplicative. 
-Also see that $ J_k = \mu * N^k $. So by the result in the notes, since $ N^k $ is 
-completely multiplicative $ J_k^{-1} = N^{k} $.
+Let $ N^k(n) = n^k $. We can then write that $ J_k =  N^k * \mu $. 
+So
+\begin{align*}
+	J_k^{-1} &= (N^k * \mu )^{-1} \\
+	&= \mu^{-1} * N^{k -1}. \\
+\end{align*}
+As it is clear that $ N_k $ is completely multiplicative so $ N^{k -1}(n) = \mu(n)N^{k} $,
+and hence 
+\begin{align*}
+	J_k^{-1}(n) &= \sum_{d|n} u(d) \mu\left( \frac{n}{d} \right) N^{k}\left( \frac{n}{d} \right) \\
+		&= \sum_{d|n} \mu(d) N^{k}(d)
+\end{align*}
+Now as $ \mu(n)N^{k} $ is multiplicative so $ J_k^{-1} $ is the Dirichlet product of two multiplicative functions,
+and is hence multiplicative.
+For $ p $ prime we have that
+\begin{align*}
+	J_k^{-1}(p^\alpha) &= \sum_{j=0}^{\alpha}\mu(p^j)p^{jk} \\
+		&= (1 - p^k)
+\end{align*}
+
+So if $ n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_r^{\alpha_r} $ where the $ p_j $ are distinct primes, then
+$$
+	J_{k}^{-1}(n) = \prod_{j = 1}^{r} \left( 1 - p^k \right).
+$$
 \qed
 
 \hrulefill
