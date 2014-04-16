@@ -23,7 +23,7 @@ When does $ \tau(n) = 2^{\omega(n)} $.
 \hrulefill
 
 \subsection*{\textcolor{blue}{Solution}}
-\subsubsection*{\textcolor{blue}{Part a}}
+\subsubsection*{\textcolor{blue}{Part b}}
 Firstly we prove that $ 2^\omega(n) \leq \tau(n) $. 
 From the lecture notes we have that if $ n = \prod_{j=1}^m p_j^{k_j} $
 then $ \tau(n) = \prod^{m}_{j=1}(k_j + 1) $ so we can say
@@ -56,6 +56,9 @@ Because we have that $$ n = \prod_{j=1}^m p_j^{k_j} $$ and $$ 2^{\Omega(n)} = \p
 then it is clear because $ 2 \leq k_j $ for all $ j $. 
 
 So we have shown that $ 2^{\omega(n)} \leq \tau(n) \leq 2^{\Omega(n)} \leq n $.
+
+\subsubsection*{\textcolor{blue}{Part a}}
+Clearly just when $ n $ is square-free.
 
 \hrulefill
 
@@ -100,7 +103,7 @@ $$
 $$
 and note that since $ J_k $ is multiplicative, so is $ \gamma_k $.
 
-Therefor it we only need to see consider $ \gamma_k(p^\alpha) $, where $ p $ is prime,
+Therefore we only need to consider $ \gamma_k(p^\alpha) $, where $ p $ is prime,
 to characterize $ \gamma_k $.
 
 Therefore observe that
@@ -140,7 +143,7 @@ and hence
 	J_k^{-1}(n) &= \sum_{d|n} u(d) \mu\left( \frac{n}{d} \right) N^{k}\left( \frac{n}{d} \right) \\
 		&= \sum_{d|n} \mu(d) N^{k}(d)
 \end{align*}
-Now as $ \mu(n)N^{k} $ is multiplicative so $ J_k^{-1} $ is the Dirichlet product of two multiplicative functions,
+Now as $ \mu N^{k} $ is multiplicative $ J_k^{-1} $ is the Dirichlet product of two multiplicative functions,
 and is hence multiplicative.
 For $ p $ prime we have that
 \begin{align*}
@@ -166,7 +169,10 @@ Hence $ M_2(x) $ counts the number of square free integers $ \leq x $.
 Explain why $ (\mu(n))^2 = \sum_{m^2 | n} \mu(m) $.
 
 \subsubsection*{Part b}
-Proce that $ M_2(x) = x \sum_{m \leq \sqrt{x}} \frac{\mu(n)}{m^2} - \sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\} $.
+Prove that 
+$$ 
+    M_2(x) = x \sum_{m \leq \sqrt{x}} \frac{\mu(n)}{m^2} - \sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\}.
+$$    
 
 \subsubsection*{Part c}
 Deduce that 
@@ -197,21 +203,21 @@ Then it can be easily seen that
         &+ \mu(p_1 p_2 p_3) + \ldots + \mu( p_{t-3} p_{t-2} p_{t-1}) \\
         &+ \ldots \\
         &+ \mu(p_1 p_2 \ldots p_{t-1}) \\
-        &=  \binom{t-1}{0}(-1)^{0} + \binom{t-1}{1} (-1)^{1} + \ldots  \binom{t-1}{t-1}(-1)^{t-1} \\
+        &=  \binom{t-1}{0}(-1)^{0} + \binom{t-1}{1} (-1)^{1} + \ldots + \binom{t-1}{t-1}(-1)^{t-1} \\
         &= \begin{cases}
-               (1-1)^{t-1} = 0 & \text{ where } n \text{ is not squarefree } \\
-               1 & \text{ where } n \text{ is squarefree }
+               (1-1)^{t-1} = 0 & \text{ where } n \text{ is not square-free } \\
+               1 & \text{ where } n \text{ is square-free }
            \end{cases}
 \end{align*}
 It should be noted that higher powers of primes do not appear in the sum
-because they are not squarefree and hence mobuis function would be $ 0 $ 
+because they are not square-free and hence Mobius function would be $ 0 $ 
 for these numbers.
 
 Since it is clear that 
 \begin{align*}
     (\mu(n))^2 = \begin{cases}
-        (1-1)^{t-1} = 0 & \text{ where } n \text{ is not squarefree } \\
-        1 & \text{ where } n \text{ is squarefree }
+        (1-1)^{t-1} = 0 & \text{ where } n \text{ is not square-free } \\
+        1 & \text{ where } n \text{ is square-free }
     \end{cases}
 \end{align*}
 we have shown that $ (\mu(n))^2 = \sum_{m^2 | n} \mu(m) $. \qed
@@ -233,8 +239,8 @@ $$
 		&+ f(4)[ g(1) + g(2)] + f(5)g(1) + \ldots \\  
 		&+ f(8)[g(1) + g(2)] + \ldots \\
 			&\text{ by reordering } \\
-			&= g(1)[ f(1) + f(2) + f(3) + \ldots + f(\lfloor x \rfloor ) ] + \\
-				&+ g(2)[ f(4) + f(8) + f(12) + \ldots + f(\lfloor x \rfloor ) ] + \ldots \\
+			&= g(1)[ f(1) + f(2) + f(3) + \ldots ] + \\
+				&+ g(2)[ f(4) + f(8) + f(12) + \ldots ] + \ldots \\
 			&= \sum_{m \leq \sqrt{x}} g(m) \sum_{jm^2 \leq x}f(jm^2).
 	\end{align*}
 \end{proof}
@@ -275,17 +281,19 @@ Its then clear to see that
 		&= x \sum_{m \leq \sqrt{x}} \frac{\mu(m)}{m^2} - \sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\}
 \end{align*}
 So we have shown that
-$$ M_2(x) = x \sum_{m \leq \sqrt{x}} \frac{\mu(n)}{m^2} - \sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\} $$. \qed
+$$ 
+    M_2(x) = x \sum_{m \leq \sqrt{x}} \frac{\mu(n)}{m^2} - \sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\}. 
+$$ \qed
 
 \subsubsection*{\textcolor{blue}{Part c}}
 
 Since $ \zeta(2) = \frac{\pi^2}{6} $ and 
 $$
-	\sum_{m=1}^{\infty} \frac{\mu(m)}{m^2} = \frac{6}{\pi}
+	\sum_{m=1}^{\infty} \frac{\mu(m)}{m^2} = \frac{6}{\pi^2}
 $$
 then 
 \begin{align*}
-	x \sum_{m \leq \sqrt{x}} \frac{\mu(m)}{m^2} &= \frac{6x}{\pi^2} - x \left( \sum_{m > \sqrt{x}} \frac{\mu(m)}{m^2} \right) \\
+	x \sum_{m \leq \sqrt{x}} \frac{\mu(m)}{m^2} &= x \frac{6}{\pi^2} - x \left( \sum_{m > \sqrt{x}} \frac{\mu(m)}{m^2} \right) \\
 		&= x\frac{6}{\pi^2} + xO\left( \sum_{m>\sqrt{x}} \frac{1}{m^2} \right) \\
 		&= x\frac{6}{\pi^2} + xO\left( \frac{1}{\sqrt{x}} \right) \\
 		&= x\frac{6}{\pi^2} + O\left( \sqrt{x} \right) \\
@@ -293,7 +301,7 @@ then
 
 Additionally it is clear that 
 $$
-O(\sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\}) = O(1)
+O\left(\sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\}\right) = O(1)
 $$
 and so 
 $$
@@ -302,14 +310,14 @@ $$
 \qed
 
 \subsubsection*{\textcolor{blue}{Part d}}
-There are $ x $ natural numbers in the interval  $ [1, x] $ so the proportion of squarefree integers in the interval 
+There are $ x $ natural numbers in the interval  $ [1, x] $ so the proportion of square-free integers in the interval 
 $ [1, x] $ would be given by 
 $$
 	\frac{M_2(x)}{x}
 $$
 which is equal to 
 $$
-	\frac{6}{\pi^2} + O(\frac{1}{\sqrt{x}}).
+	\frac{6}{\pi^2} + O\left(\frac{1}{\sqrt{x}}\right).
 $$
 So as $ x \lra \infty $ then the proportion of square free integers in the interval becomes ``closer'' to 
 $ \frac{6}{\pi^2} $.
