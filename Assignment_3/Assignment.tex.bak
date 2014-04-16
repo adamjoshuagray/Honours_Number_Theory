@@ -58,7 +58,7 @@ then it is clear because $ 2 \leq k_j $ for all $ j $.
 So we have shown that $ 2^{\omega(n)} \leq \tau(n) \leq 2^{\Omega(n)} \leq n $.
 
 \subsubsection*{\textcolor{blue}{Part a}}
-Clearly just when $ n $ is square-free.
+Clearly just when $ n $ is squarefree.
 
 \hrulefill
 
@@ -67,7 +67,7 @@ Define the \textbf{Jordan totient function} by
 $$
     n^k\prod_{p|n}(1-p^-k),
 $$
-where, as usual, the product is taken over the primes. This is a generalisation of Euler's
+where, as usual, the product is taken over the primes. This is a generalization of Euler's
 totient function.
 \subsubsection*{Part a}
 Prove that $ J $ is multiplicative.
@@ -104,7 +104,7 @@ $$
 and note that since $ J_k $ is multiplicative, so is $ \gamma_k $.
 
 Therefor it we only need to see consider $ \gamma_k(p^\alpha) $, where $ p $ is prime,
-to characterise $ \gamma_k $.
+to characterize $ \gamma_k $.
 
 Therefore observe that
 \begin{align*}
@@ -169,7 +169,7 @@ Hence $ M_2(x) $ counts the number of square free integers $ \leq x $.
 Explain why $ (\mu(n))^2 = \sum_{m^2 | n} \mu(m) $.
 
 \subsubsection*{Part b}
-Prove that $ M_2(x) = x \sum_{m \leq \sqrt{x}} \frac{\mu(n)}{m^2} - \sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\} $.
+Proce that $ M_2(x) = x \sum_{m \leq \sqrt{x}} \frac{\mu(n)}{m^2} - \sum_{m \leq \sqrt{x}} \mu(m) \left\{ \frac{x}{m^2} \right\} $.
 
 \subsubsection*{Part c}
 Deduce that 
@@ -190,7 +190,7 @@ Use MAPLE (or otherwise) to count the number of square-free numbers between $ 1 
 \subsubsection*{\textcolor{blue}{Part a}}
 Write $ n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_r^{\alpha_r} $ where $ p_j $ 
 is prime and all $ p_j $ are distinct.
-Without loss of generality assume we can reorder this factorisation such that 
+Without loss of generality assume we can reorder this factorization such that 
 there exists a $ 1 \leq t \leq r $ such that
 when $ j < t $, $ 2 \leq \alpha_j $.
 Then it can be easily seen that
@@ -202,19 +202,19 @@ Then it can be easily seen that
         &+ \mu(p_1 p_2 \ldots p_{t-1}) \\
         &=  \binom{t-1}{0}(-1)^{0} + \binom{t-1}{1} (-1)^{1} + \ldots  \binom{t-1}{t-1}(-1)^{t-1} \\
         &= \begin{cases}
-               (1-1)^{t-1} = 0 & \text{ where } n \text{ is not square-free } \\
-               1 & \text{ where } n \text{ is square-free }
+               (1-1)^{t-1} = 0 & \text{ where } n \text{ is not squarefree } \\
+               1 & \text{ where } n \text{ is squarefree }
            \end{cases}
 \end{align*}
 It should be noted that higher powers of primes do not appear in the sum
-because they are not square-free and hence Mobius function would be $ 0 $ 
+because they are not squarefree and hence mobuis function would be $ 0 $ 
 for these numbers.
 
 Since it is clear that 
 \begin{align*}
     (\mu(n))^2 = \begin{cases}
-        (1-1)^{t-1} = 0 & \text{ where } n \text{ is not square-free } \\
-        1 & \text{ where } n \text{ is square-free }
+        (1-1)^{t-1} = 0 & \text{ where } n \text{ is not squarefree } \\
+        1 & \text{ where } n \text{ is squarefree }
     \end{cases}
 \end{align*}
 we have shown that $ (\mu(n))^2 = \sum_{m^2 | n} \mu(m) $. \qed
@@ -305,7 +305,7 @@ $$
 \qed
 
 \subsubsection*{\textcolor{blue}{Part d}}
-There are $ x $ natural numbers in the interval  $ [1, x] $ so the proportion of square-free integers in the interval 
+There are $ x $ natural numbers in the interval  $ [1, x] $ so the proportion of squarefree integers in the interval 
 $ [1, x] $ would be given by 
 $$
 	\frac{M_2(x)}{x}
