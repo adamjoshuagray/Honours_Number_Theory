@@ -16,7 +16,7 @@ $$
 	\sum_{i=1}^4 \chi_i(n) \overline{ \chi_i(b)}, \ \ \ \text{ for each } b \in \mathbb{U}_5.
 $$
 \subsection*{Part b}
-Use the results of (a) to prove, in detail, that there are infnitely many primes congruent to  $ 1 \mod 5 $,
+Use the results of (a) to prove, in detail, that there are infinitely many primes congruent to  $ 1 \mod 5 $,
 $ 2 \mod 5 $, and $ 3 \mod 5 $ and $ 4 \mod 5 $.
 
 \subsection*{Solution}
@@ -44,7 +44,8 @@ For this question we use the following character table:
 		4 & \text{ if } n \equiv b \mod 5
 	\end{cases}
 \end{align*}
-This follows immediatly from the orthogonality relation proved in lectures.
+This follows immediately from the orthogonality relation proved in lectures. (With the subtle difference that
+this is a Dirichlet character, but because $ b \in \{ 1,2,3,4 \} $ this makes no difference.)
 \subsection*{Part b}
 Firstly see that 
 \begin{align*}
@@ -108,7 +109,7 @@ and
 so $ \frac{3}{4} < \Re(L(s, \chi_3)) < 1 $ for $ s > 0 $. 
 We can also see that $$ \Re(L(s, \chi_4)) = \Re(L(s, \chi_3)) $$ and so $ \frac{3}{4} < \Re(L(s, \chi_4)) < 1 $ for $ s > 0 $.
 
-Now see that (by appling the result of part a)
+Now see that (by applying the result of part a)
 \begin{align*}
 	\sum_{i=1}^4 \chi_i(b) \log( L(s, \chi_i)) &= \sum_{p \text{ prime}} \frac{\sum_{i=1}^{4}\chi_i(b)\chi_i(p)}{p^s} + \underbrace{\sum_{i=1}^4 \chi_i(b)R_i(s)}_{\text{ bounded as } s \lra 1^+}\\
 		&= 4\sum_{\substack{p \text{ prime} \\ p \equiv b\mod 5 }} \frac{1}{p^s} + \underbrace{\sum_{i=1}^4 \chi_i(b)R_i(s)}_{\text{ bounded as } s \lra 1^+}.
@@ -117,7 +118,7 @@ Now as only $ \log(L(s, \chi_1)) $ is unbounded as $ s \lra 1^+ $ then
 $$
 \sum_{\substack{p \text{ prime} \\ p \equiv b\mod 5 }} \frac{1}{p^s} \lra \infty \text{ as } s \lra 1^+
 $$
-which implies that there are infinitly many primes $ p \equiv b \mod 5 $ for $ b \in \{ 1,2,3,4 \} $.
+which implies that there are infinitely many primes $ p \equiv b \mod 5 $ for $ b \in \{ 1,2,3,4 \} $.
 
 \section*{Question 2}
 Let $ \chi $ be any Dirichlet character. Then, for $ s > 1 $, prove that
@@ -141,7 +142,7 @@ so
 		& \ \ \ - \frac{\chi(2)\chi(3)\chi(5)}{2^s3^s5^s} - \cdots \\
 		& \ \ \ \ \ \vdots
 \end{align*}
-and because $ \chi $ is completly multiplicative
+and because $ \chi $ is completely multiplicative
 \begin{align*}
 	\frac{1}{L(s,\chi)}
 		&= 1 - \frac{\chi(2)}{2^s} - \frac{\chi(3)}{3^s} - \frac{\chi(5)}{5^s} - \cdots \\
