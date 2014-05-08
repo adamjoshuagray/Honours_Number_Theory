@@ -118,6 +118,78 @@ $$
 \sum_{\substack{p \text{ prime} \\ p \equiv b\mod 5 }} \frac{1}{p^s} \lra \infty \text{ as } s \lra 1^+
 $$
 which implies that there are infinitly many primes $ p \equiv b \mod 5 $ for $ b \in \{ 1,2,3,4 \} $.
+
+\section*{Question 2}
+Let $ \chi $ be any Dirichlet character. Then, for $ s > 1 $, prove that
+$$
+	\frac{1}{L(s, \chi)} = \sum_{n=1}^\infty \frac{\chi(n)\mu(n)}{n^s}
+$$
+\subsection*{Solution}
+This is almost obvious.
+
+Firstly we know that 
+\begin{align*}
+	L(s,\chi) = \prod_{p \text{ prime}} \left( 1 - \frac{\chi(p)}{p^s} \right)^{-1}
+\end{align*}
+so 
+\begin{align*}
+	\frac{1}{L(s,\chi)} &= \prod_{p \text{ prime}} \left( 1 - \frac{\chi(p)}{p^s} \right) \\
+		&= \left( 1 - \frac{\chi(2)}{2^s}\right) \left( 1 - \frac{\chi(3)}{3^s}\right)\left( 1 - \frac{\chi(5)}{5^s}\right)\cdots \\
+		&\text{ Peter Brown: Deep breath...} \\
+		&= 1 - \frac{\chi(2)}{2^s} - \frac{\chi(3)}{3^s} - \frac{\chi(5)}{5^s} - \cdots \\
+		& \ \ \ + \frac{\chi(2)\chi(3)}{2^s3^s} + \frac{\chi(2)\chi(5)}{2^s5^s} + \cdots + \frac{\chi(3)\chi(5)}{3^s5^s} + \cdots \\
+		& \ \ \ - \frac{\chi(2)\chi(3)\chi(5)}{2^s3^s5^s} - \cdots \\
+		& \ \ \ \ \ \vdots
+\end{align*}
+and because $ \chi $ is completly multiplicative
+\begin{align*}
+	\frac{1}{L(s,\chi)}
+		&= 1 - \frac{\chi(2)}{2^s} - \frac{\chi(3)}{3^s} - \frac{\chi(5)}{5^s} - \cdots \\
+		& \ \ \ + \frac{\chi(2 \times 3)}{(2\times 3)^s} + \frac{\chi(2\times 5)}{(2 \times 5)^s} + \cdots + \frac{\chi(3 \times 5)}{(3 \times 5)^s} + \cdots \\
+		& \ \ \ - \frac{\chi(2 \times 3 \times 5)}{(2 \times 3 \times 5)^s} - \cdots \\
+		& \ \ \ \ \ \vdots
+\end{align*}
+It's clear from the definition of $ \mu $ that this can be rewritten as
+\begin{align*}
+	\frac{1}{L(s,\chi)} = \sum_{n=1}^\infty \frac{\chi(n)\mu(n)}{n^s}.
+\end{align*}
+
+\section*{Question 3}
+Suppose $ \chi_4 $ and $ \chi_6 $ are the (unique) non-principle characters modulo 4 and 6 respectively.
+Show that $ L(1, \chi_4)  = \frac{\pi}{4} $ and $ L(1, \chi_6) = \frac{\pi}{2\sqrt{3}} $. 
+
+\subsection*{Solution}
+We have that for a non-principle character modulo $ k $
+\begin{align*}
+	L(1, \chi) &= \int_0^1 \frac{\lambda(t)}{1-t^k} dt \\
+\end{align*}
+where $ \lambda(t) = \sum_{n=1}^k \chi(n)t^{n-1} $.
+
+In the case of $\chi_4 $ we have that 
+$ \lambda(t) = 1 - t^2 $,
+and so we have the evaluate
+\begin{align*}
+	\int_0^1 \frac{1-t^2}{1-t^4} dt &= \int_0^1 \frac{(1-t^2)}{(1-t^2)(1+t^2)}dt \\
+		&= \left[ \tan^{-1}(t) \right]^1_1 \\
+		&= \frac{\pi}{4}
+\end{align*}
+so $ L(1, \chi_4)  = \frac{\pi}{4} $.
+
+In the case of $ \chi_6 $ we have that $ \lambda(t) = 1 - t^4 $, and so we evaluate
+\begin{align*}
+	\int_0^1 \frac{1-t^4}{1-t^6} dt &= \int_0^1 \frac{(1-t^2)(1+t^2}{(1-t^2)(1+t^2+t^4)}dt \\
+		&= \int_0^1 \frac{(1+t^2)}{(1+t^2+t^4)} \\
+		&= \int_0^1 \frac{(1+\frac{1}{t^2}}{(\frac{1}{t^2} + 1 + t^2)} dt.
+\end{align*}
+Let $ x = t - \frac{1}{t} $ and note that $ dx = (1 + \frac{1}{t^2})dt $
+and note that as $ t \lra 0+ $, $ x \lra -\infty $ and when $ t = 1 $, $ x = 0 $.
+So we have that 
+\begin{align*}
+	\int_0^1 \frac{(1+\frac{1}{t^2}}{(\frac{1}{t^2} + 1 + t^2)} dt &= \int_{-\infty}^0 \frac{1}{x^2 + 3} dx \\
+		&= \left[ \frac{1}{\sqrt{3}}\tan^{-1}\left(\frac{x}{\sqrt{3}}\right)\right]_{x \lra -\infty}^0 \\
+		&= \frac{\pi}{2\sqrt{3}}
+\end{align*}
+so $ L(1, \chi_6) = \frac{\pi}{2\sqrt{3}} $.
 \end{document}
 
 
