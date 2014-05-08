@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.4.26)  8 MAY 2014 18:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.4.26)  8 MAY 2014 19:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -626,11 +626,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Here is how much of TeX's memory you used:
  12880 strings out of 493308
  247302 string characters out of 6143616
- 285631 words of memory out of 5000000
+ 286631 words of memory out of 5000000
  16047 multiletter control sequences out of 15000+600000
  8405 words of font info for 32 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 62i,11n,56p,422b,263s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,16n,56p,422b,263s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
 /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
@@ -641,7 +641,7 @@ sfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/amsfonts/symbols/msbm10.pfb>
-Output written on Assignment.pdf (2 pages, 349637 bytes).
+Output written on Assignment.pdf (2 pages, 350621 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream
