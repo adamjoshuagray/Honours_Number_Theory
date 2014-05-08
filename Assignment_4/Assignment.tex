@@ -20,6 +20,22 @@ Use the results of (a) to prove, in detail, that there are infnitely many primes
 $ 2 \mod 5 $, and $ 3 \mod 5 $ and $ 4 \mod 5 $.
 
 \subsection*{Solution}
+For this question we use the following character table:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{c | c | c | c | c}
+		& 1 & 3 & 4 & 2 \\ \hline 
+		$\chi_1$ & 1 & 1 & 1 & 1 \\
+		\hline
+		$\chi_2$ & 1 & -1 & 1 & -1 \\
+		\hline
+		$\chi_3$ & 1 & i & -1 & -i \\
+		\hline
+		$\chi_4$ & 1 & -i & -1 & i
+	\end{tabular}
+\end{table}
+	
 \subsection*{Part a}
 \begin{align*}
 	\sum_{i=1}^4 \chi_i(n) \overline{ \chi_i(b)} &=
@@ -61,6 +77,47 @@ See that
 \end{align*}
 and so $ R_i(s) $ is bounded as $ s \longrightarrow 1^{+} $.
 
+Now see that 
+\begin{align*}
+	L(s,\chi_1) = \sum_{b = 1}^4 \sum_{n=0}^\infty \frac{1}{(5n+b)^s} \longrightarrow \infty \text{ as } s \longrightarrow 1^+.
+\end{align*}
+For $ \chi_2 $ see that 
+\begin{align*}
+	\Re(L(s, \chi_2)) &= \underbrace{\frac{1}{1^s} - \frac{1}{2^s} -\frac{1}{3^s} + \frac{1}{4^s}}_{>\frac{1}{6}} + \underbrace{\frac{1}{6^s} - \frac{1}{7^s} + \frac{1}{8^s} - \frac{1}{9^s}}_{> 0 } + \underbrace{\cdots}_{>0} \\
+		&> \frac{1}{6}
+\end{align*}
+and 
+\begin{align*}
+	\Re(L(s, \chi_2)) &= \frac{1}{1^s} - \underbrace{\left( \frac{1}{2^s} +\frac{1}{3^s} - \frac{1}{4^s} - \frac{1}{6^s} \right)}_{>0} - 
+		\underbrace{\left(\frac{1}{7^s} + \frac{1}{8^s} - \frac{1}{9^s} - \frac{1}{11^s} \right)}_{>0} - \underbrace{\cdots}_{>0} \\
+		&< 1
+\end{align*}
+so $ \frac{1}{6} < \Re(L(s, \chi_2)) < 1 $ for all $ s > 1 $.
+
+For $ \chi_3 $ see that
+\begin{align*}
+	\Re(L(s, \chi_3)) = \underbrace{\frac{1}{1^s} - \frac{1}{4^s}}_{>\frac{3}{4}} + 
+		\underbrace{\frac{1}{6^s} + \frac{1}{9^s}}_{>0} + \underbrace{\cdots}_{>0} \\
+		> \frac{3}{4}
+\end{align*}
+and 
+\begin{align*}
+	\Re(L(s, \chi_3)) &= \frac{1}{1^s} - \underbrace{\left( \frac{1}{4^s} - \frac{1}{6^s} \right)}_{>0} - \underbrace{\left( \frac{1}{9} - \frac{1}{11} \right)}_{>0} - \underbrace{\cdots}_{>0} \\
+		&< 1
+\end{align*}
+so $ \frac{3}{4} < \Re(L(s, \chi_3)) < 1 $ for $ s > 0 $. 
+We can also see that $$ \Re(L(s, \chi_4)) = \Re(L(s, \chi_3)) $$ and so $ \frac{3}{4} < \Re(L(s, \chi_4)) < 1 $ for $ s > 0 $.
+
+Now see that (by appling the result of part a)
+\begin{align*}
+	\sum_{i=1}^4 \chi_i(b) \log( L(s, \chi_i)) &= \sum_{p \text{ prime}} \frac{\sum_{i=1}^{4}\chi_i(b)\chi_i(p)}{p^s} + \underbrace{\sum_{i=1}^4 \chi_i(b)R_i(s)}_{\text{ bounded as } s \lra 1^+}\\
+		&= 4\sum_{\substack{p \text{ prime} \\ p \equiv b\mod 5 }} \frac{1}{p^s} + \underbrace{\sum_{i=1}^4 \chi_i(b)R_i(s)}_{\text{ bounded as } s \lra 1^+}.
+\end{align*}
+Now as only $ \log(L(s, \chi_1)) $ is unbounded as $ s \lra 1^+ $ then 
+$$
+\sum_{\substack{p \text{ prime} \\ p \equiv b\mod 5 }} \frac{1}{p^s} \lra \infty \text{ as } s \lra 1^+
+$$
+which implies that there are infinitly many primes $ p \equiv b \mod 5 $ for $ b \in \{ 1,2,3,4 \} $.
 \end{document}
 
 
