@@ -94,7 +94,10 @@ and
 		&< 1
 \end{align*}
 so $ \frac{1}{6} < \Re(L(s, \chi_2)) < 1 $ for all $ s > 1 $.
-
+Also note that
+\begin{align*}
+	\Im( L(s, \chi_2)) = 0.
+\end{align*}
 For $ \chi_3 $ see that
 \begin{align*}
 	\Re(L(s, \chi_3)) = \underbrace{\frac{1}{1^s} - \frac{1}{4^s}}_{>\frac{3}{4}} + 
@@ -108,6 +111,20 @@ and
 \end{align*}
 so $ \frac{3}{4} < \Re(L(s, \chi_3)) < 1 $ for $ s > 0 $. 
 We can also see that $$ \Re(L(s, \chi_4)) = \Re(L(s, \chi_3)) $$ and so $ \frac{3}{4} < \Re(L(s, \chi_4)) < 1 $ for $ s > 0 $.
+
+Also note that
+\begin{align*}
+	\Im(L(s, \chi_3)) &= -\frac{1}{2} + \underbrace{\frac{1}{3} - \frac{1}{7}}_{>0} + \underbrace{\frac{1}{8} - \frac{1}{12}}_{>0} + \underbrace{\cdots}_{>0} \\
+		&> -\frac{1}{2}
+\end{align*}
+and
+\begin{align*}
+	\Im(L(s, \chi_3)) &= \underbrace{-\frac{1}{2} + \frac{1}{3}}_{<0} + \underbrace{- \frac{1}{7} + \frac{1}{8}}_{<0} + \underbrace{\cdots}_{<0} \\
+		&< 0
+\end{align*}
+so $ -\frac{1}{2} < \Im(L(s, \chi_3)) < 0 $.
+
+Also $ \Im( L(s, \chi_4) ) = - \Im( L(s, \chi_3) ) $ so $ 0 < \Im( L(s, \chi_4) ) < \frac{1}{2} $.
 
 Now see that (by applying the result of part a)
 \begin{align*}
@@ -191,6 +208,9 @@ So we have that
 		&= \frac{\pi}{2\sqrt{3}}
 \end{align*}
 so $ L(1, \chi_6) = \frac{\pi}{2\sqrt{3}} $.
+
+\section*{Acknowledgements}
+Thank you to Roberto for reminding me to bound the imaginary parts of the $ L $ functions in question 1 part b.
 \end{document}
 
 
