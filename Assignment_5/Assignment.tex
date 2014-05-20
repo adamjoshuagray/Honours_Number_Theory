@@ -9,6 +9,43 @@
 
 \unswtitle
 
+\section*{Question 1}
+\subsection*{Part a}
+Use the comparison test for series to prove that for  $ s > 11 $, (s real),
+$$
+	\frac{1}{s-1} \leq \zeta(s) \leq 1 + \frac{1}{s-1}.
+$$
+\subsection*{Part b}
+Deduce that $ \lim_{s \lra 1^+} (s-1)\zeta(s) = 1 $.
+\subsection*{Part c}
+Further show that $ \frac{\log(\zeta(s))}{\log(\frac{1}{s-1})} \lra 1 $ as $ s \lra 1^+ $, and explain what this means in terms of 
+the Dirichlet density of the set of all primes.
+
+\subsubsection*{Solution}
+
+\subsubsection*{Part a}
+
+First note that
+$$
+	\int_0^\infty e^{t(1-s)} dt = \frac{1}{s-1}
+$$
+and
+$$
+	\int_0^\infty  e^{t(1-s)} + e^{-t}dt = 1 + \frac{1}{s-1}
+$$
+
+So we wish to show that 
+
+$$
+	\int_0^\infty e^{t(1-s)} dt \leq \sum_{n=1}^\infty \frac{1}{n^s} \leq \int_0^\infty  e^{t(1-s)} + e^{-t}dt
+$$
+
+which is equivelent to showing that
+
+$$
+	\sum_{n=1}^\infty \int_{n-1}^n e^{t(1-s)} dt \leq \sum_{n=1}^\infty \int_{n-1}^{n} \frac{1}{\lceil t \rceil^s} dt \leq \sum_{n=1}^\infty \int_{n-1}^n  e^{t(1-s)} + e^{-t}dt
+$$
+
 \section*{Question 3}
 
 Let $ M(x) = \sum_{n \leq x} \mu(n) $.
@@ -63,7 +100,7 @@ Let $ K(x) = \frac{M(x)}{x^{s+1}} $ then
 then we have that 
 \begin{align*}
 	\int_1^\infty K(x) dx &= \int_1^\infty O(x^{-s-\frac{1}{2} + \epsilon}) dx \\
-		< \infty
+		&< \infty
 \end{align*}
 so long as if $ s = \sigma + it $, then $ \sigma > \frac{1}{2} + \epsilon $, by the $ p $ test.
 
@@ -77,7 +114,7 @@ $$ |x^{\sigma + it}| = |e^{\ln(x)(\sigma + it)}| = |e^{\ln(x)\sigma}|. $$
 \subsubsection*{Part c}
 If you can prove that $ M(x) = O(x^{\frac{1}{2} + \epsilon }) $ then the integral converges for all $ \sigma > \frac{1}{2} + \epsilon $
 and hence $ \zeta(s) = \zeta(\sigma + it) \neq 0 $ for any choice of $ \epsilon > 0 $. This would mean that the only non-trivial zeros
-must have $ \sigma \leq \frac{1}{2} $. The functional equation strengthens this by symetry to say $ \sigma = \frac{1}{2} $ for any
+must have $ \sigma \leq \frac{1}{2} $. The functional equation strengthens this by symetry to say $ \sigma = \frac{1}{2} $ for any non-trivial
 zero of the Riemann-Zeta function.
 
 \end{document}
