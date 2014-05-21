@@ -27,25 +27,101 @@ the Dirichlet density of the set of all primes.
 
 First note that
 $$
-	\int_0^\infty e^{t(1-s)} dt = \frac{1}{s-1}
-$$
-and
-$$
-	\int_0^\infty  e^{t(1-s)} + e^{-t}dt = 1 + \frac{1}{s-1}
+	\int_1^\infty \frac{1}{t^s} dt = \frac{1}{s-1}.
 $$
 
 So we wish to show that 
 
 $$
-	\int_0^\infty e^{t(1-s)} dt \leq \sum_{n=1}^\infty \frac{1}{n^s} \leq \int_0^\infty  e^{t(1-s)} + e^{-t}dt
+	\int_1^\infty \frac{1}{t^s} dt \leq \sum_{n=1}^\infty \frac{1}{n^s}
+$$
+
+and
+$$
+	\sum_{n=2}^\infty \frac{1}{n^s} \leq \int_1^\infty \frac{dt}{t^s} 
 $$
 
 which is equivelent to showing that
 
+\begin{align}
+	\label{ineq-1}
+	\sum_{n=1}^\infty \int_{n}^{n+1} \frac{dt}{t^s} \leq \sum_{n=1}^\infty \int_{n-1}^{n} \frac{dt}{\lceil t \rceil^s}
+\end{align}
+
+and
+
+\begin{align}
+	\label{ineq-2}
+	\sum_{n=2}^\infty \int_{n-1}^{n} \frac{dt}{\lceil t \rceil^s} \leq \sum_{n=2}^\infty \int_{n-1}^n \frac{dt}{t^s}.
+\end{align}
+
+By the integral estimation lemma we see that each term in \eqref{ineq-1}
 $$
-	\sum_{n=1}^\infty \int_{n-1}^n e^{t(1-s)} dt \leq \sum_{n=1}^\infty \int_{n-1}^{n} \frac{1}{\lceil t \rceil^s} dt \leq \sum_{n=1}^\infty \int_{n-1}^n  e^{t(1-s)} + e^{-t}dt
+	\int_{n}^{n+1} \frac{dt}{t^s} \leq \frac{1}{n^s}
+$$
+and we also have that
+$$
+	\int_{n}^{n+1} \frac{dt}{\lceil t \rceil^s} = \frac{1}{n^s}
+$$
+so clearly 
+$$
+	\int_{n}^{n+1} \frac{dt}{t^s} \leq \int_{n}^{n+1} \frac{dt}{\lceil t \rceil^s}
+$$
+and hence \eqref{ineq-1} holds.
+
+In a similar manner for \eqref{ineq-2} we have that 
+$$
+	\int_{n-1}^n \frac{dt}{t^s} \geq \frac{1}{n^s}
+$$
+so we have that
+$$
+	\int_{n-1}^{n} \frac{dt}{\lceil t \rceil^s} \leq \int_{n-1}^n \frac{dt}{t^s}
+$$
+and \eqref{ineq-2} follows.
+
+\subsection*{Part b}
+
+By multiplying all terms of the result of part a we get that
+$$
+	1 \leq (s-1)\zeta(s) \leq 1 + (s-1)
 $$
 
+and so
+$$
+	1 \leq \lim_{s \lra 1^+} (s-1)\zeta(s) \leq \lim_{s\lra 1^+} 1 + (s-1)
+$$
+which immidiatly implies
+
+$$
+	\lim_{s \lra 1^+} (s-1) \zeta(s) = 1.
+$$
+
+\subsubsection*{Part c}
+
+Taking the log of the result of part a we get that
+
+$$
+	\log(\frac{1}{s-1}) \leq \log(\zeta(s)) \leq \log(1 + \frac{1}{s-1}).
+$$
+which means that
+\begin{align}
+	\label{ineq-3}
+	1 \leq \frac{\log(\zeta(s))}{\log\left( \frac{1}{s-1}\right)} \leq \frac{\log \left( 1 + \frac{1}{s-1} \right)}{\log\left( \frac{1}{s-1}\right)}.
+\end{align}
+
+We now evalutate
+\begin{align*}
+	\lim_{s \lra 1^+} \frac{\log \left( 1 + \frac{1}{s-1} \right)}{\log\left( \frac{1}{s-1}\right)} &= \lim_{s \lra 1^+}\frac{\frac{1}{1+\frac{1}{s-1}}\left( \frac{-1}{(s-1)^2}\right)}{\frac{1}{\frac{1}{s-1}}\left( \frac{-1}{(s-1)^2}\right)} \\
+		&= \lim_{s \lra 1^+} \frac{\frac{(s-1)}{s}}{(s-1)} \\
+		&= 1
+\end{align*}
+so by taking limits of \eqref{ineq-3} we get that 
+
+$$
+	\lim_{s \lra 1^+} \frac{\log(\zeta(s))}{\log(\frac{1}{s-1})} = 1
+$$
+
+This is completely unsuprising as it means that the set of all primes has Dirichlet density 1.
 \section*{Question 3}
 
 Let $ M(x) = \sum_{n \leq x} \mu(n) $.
