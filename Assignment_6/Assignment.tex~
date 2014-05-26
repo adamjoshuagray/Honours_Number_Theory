@@ -1,0 +1,122 @@
+\documentclass{unswmaths}
+\usepackage{color}
+\usepackage{unswshortcuts}
+\begin{document}
+\author{Adam J. Gray}
+\studentno{3329798}
+\subject{Number Theory}
+\title{Assignment}
+
+\unswtitle
+
+\section*{Question 1}
+\subsection*{Part a}
+Use the comparison test for series to prove that for  $ s > 11 $, (s real),
+$$
+	\frac{1}{s-1} \leq \zeta(s) \leq 1 + \frac{1}{s-1}.
+$$
+\subsection*{Part b}
+Deduce that $ \lim_{s \lra 1^+} (s-1)\zeta(s) = 1 $.
+\subsection*{Part c}
+Further show that $ \frac{\log(\zeta(s))}{\log(\frac{1}{s-1})} \lra 1 $ as $ s \lra 1^+ $, and explain what this means in terms of 
+the Dirichlet density of the set of all primes.
+
+\subsubsection*{Solution}
+
+\subsubsection*{Part a}
+
+First note that
+$$
+	\int_0^\infty e^{t(1-s)} dt = \frac{1}{s-1}
+$$
+and
+$$
+	\int_0^\infty  e^{t(1-s)} + e^{-t}dt = 1 + \frac{1}{s-1}
+$$
+
+So we wish to show that 
+
+$$
+	\int_0^\infty e^{t(1-s)} dt \leq \sum_{n=1}^\infty \frac{1}{n^s} \leq \int_0^\infty  e^{t(1-s)} + e^{-t}dt
+$$
+
+which is equivelent to showing that
+
+$$
+	\sum_{n=1}^\infty \int_{n-1}^n e^{t(1-s)} dt \leq \sum_{n=1}^\infty \int_{n-1}^{n} \frac{1}{\lceil x \rceil^s} dx \leq \sum_{n=1}^\infty \int_{n-1}^n  e^{t(1-s)} + e^{-t}dt
+$$
+
+\section*{Question 3}
+
+Let $ M(x) = \sum_{n \leq x} \mu(n) $.
+
+\subsection*{Part a}
+
+Use the fact that 
+$$
+	\frac{1}{\zeta(s)} = \sum_{n =1}^\infty \frac{\mu(n)}{n^s}
+$$
+for $ \sigma = \real(s) > 1 $, to deduce that 
+$$
+	\frac{1}{\zeta(s)} = s \int_1^\infty M(x)x^{-s-1} dx.
+$$
+
+\subsection*{Part b}
+Assume that $ M(x) = O(x^{\frac{1}{2} + \epsilon}) $, for any $ \epsilon > 0 $ is true and deduce 
+that the integral on the right convergess for $ \sigma > \frac{1}{2} + \epsilon $.
+
+\subsection*{Part c}
+
+Hence explain why $ M(x) = O(x^{\frac{1}{2} + \epsilon}) $, for any $ \epsilon > 0 $, implies the Riemann Hypothesis.
+
+\subsubsection*{Solutions}
+
+\subsubsection*{Part a}
+
+Firstly note that
+\begin{align*}
+	\int_{n}^{n+1} \frac{d}{dx}\left( \frac{1}{x^s} \right) dx &= -\int_{n}^{n+1}\frac{s}{x^{s+1}}dx \\
+		&= \left[ \frac{1}{x^{s+1}} \right]_{x = n}^{x=n+1} \\
+		&= \left( \frac{1}{(n+1)^{s+1}} - \frac{1}{(n^s)} \right).
+\end{align*}
+
+Also note that
+\begin{align*}
+	\sum_{n=1}^\infty \frac{\mu(n)}{n^s} &= \sum_{n=1}^\infty \frac{M(n) - M(n-1)}{n^s} \\
+		&= \sum_{n=1}^\infty M(n) \left( \frac{1}{n^s} - \frac{1}{(n+1)^s} \right) \\
+		& \text{ and by using the observation above} \\
+		&= \sum_{n=1}^\infty M(n) \int_{n-1}^n \frac{s}{x^{s+1}} dx \\
+		&= \sum_{n=1}^\infty \int_{n-1}^n \frac{s M(x)}{x^{s+1}} dx \\
+		&= s \int_1^\infty\frac{M(x)}{x^{s+1}} dx
+\end{align*}
+
+\subsubsection*{Part b}
+
+Let $ K(x) = \frac{M(x)}{x^{s+1}} $ then
+\begin{align*}
+	K(x) &= \frac{O(x^{\frac{1}{2} + \epsilon})}{x^{s+1}} \\
+		&= O(x^{-s-\frac{1}{2} + \epsilon})
+\end{align*}
+then we have that 
+\begin{align*}
+	\int_1^\infty K(x) dx &= \int_1^\infty O(x^{-s-\frac{1}{2} + \epsilon}) dx \\
+		&< \infty
+\end{align*}
+so long as if $ s = \sigma + it $, then $ \sigma > \frac{1}{2} + \epsilon $, by the $ p $ test.
+
+
+
+We don't need to consider the imaginary component because, $| x^s | $ is independent
+of its imaginary component, i.e. 
+
+$$ |x^{\sigma + it}| = |e^{\ln(x)(\sigma + it)}| = |e^{\ln(x)\sigma}|. $$
+
+\subsubsection*{Part c}
+If you can prove that $ M(x) = O(x^{\frac{1}{2} + \epsilon }) $ then the integral converges for all $ \sigma > \frac{1}{2} + \epsilon $
+and hence $ \zeta(s) = \zeta(\sigma + it) \neq 0 $ for any choice of $ \epsilon > 0 $. This would mean that the only non-trivial zeros
+must have $ \sigma \leq \frac{1}{2} $. The functional equation strengthens this by symetry to say $ \sigma = \frac{1}{2} $ for any non-trivial
+zero of the Riemann-Zeta function.
+
+\end{document}
+
+

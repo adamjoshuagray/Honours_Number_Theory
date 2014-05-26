@@ -1,0 +1,76 @@
+\documentclass{unswmaths}
+\usepackage{color}
+\usepackage{unswshortcuts}
+\begin{document}
+\author{Adam J. Gray}
+\studentno{3329798}
+\subject{Number Theory}
+\title{Assignment}
+
+\unswtitle
+
+\section*{Question 1}
+
+Suppose $ x > 2 $ and let $ m $ be the largest integer such that $ 2^m \leq x $.
+
+\subsection*{Part a}
+Use the definition of $ \psi(x) $ to deduce that $ \psi(x) \geq \vartheta(x) $ and conclude from Tutorial problem 1 that
+$ \vartheta(x) \leq 2x $.
+
+\subsection*{Part c}
+
+Show that $ \frac{\log(x) }{x^\alpha} $ has a maximum of $ \frac{1}{\alpha e} $
+
+\subsection*{Part d}
+
+Deduce that $ \\psi(x) - \vartheta(x) \leq 9x^\frac{1}{2} $.
+
+\subsection*{Part e}
+
+Conclude that, as $ x \lra \infty $, $ \frac{\psi(x)}{x} \lra 1 \Leftrightarrow \frac{\vartheta(x)}{x} \lra 1 $.
+
+\subsubsection*{Solution}
+
+\subsubsection*{Part a}
+
+We have that 
+
+\begin{align*}
+	\psi(x) &= \sum_{m \leq \log_2(x)} \vartheta(x^\frac{1}{m}) \\
+		&= \vartheta(x) + \underbrace{\sum_{2 \leq m \leq \log_2(x)} \vartheta(x^\frac{1}{m})}_{\geq 0} \\
+\end{align*}
+so it is obvious that $ \psi(x) \geq \vartheta(x) $.
+
+From the tutorial problems we have that $ \psi(x) \leq 2x $ so it must also be that $ \vartheta(x) \leq 2x $.
+
+
+\subsubsection*{Part b}
+
+See that 
+\begin{align*}
+	\frac{d}{dx} \frac{log(x)}{x^\alpha} &= \frac{\frac{1}{x} x^\alpha - \alpha \log(x) x^{\alpha-1}}{x^{2\alpha}} \\
+		&= \underbrace{\frac{x^{\alpha-1}( 1 - \alpha \log(x)}{x^{2 \alpha}}}_{\circledast}.
+\end{align*}
+Now setting $ \circledast = 0 $
+we have that 
+
+\begin{align*}
+	\log(x) &= \frac{1}{\alpha} \\
+	x &= e^{\frac{1}{\alpha}}.
+\end{align*}
+
+
+Now checking
+\begin{align*}
+	\frac{d^2}{dx^2} \frac{\log(x)}{x^\alpha} \Big|_{x = e^{\frac{1}{\alpha}}} &= e^{\frac{-2-\alpha}{2}}(1-\alpha)(1 - 1) + e^\frac{-1-\alpha}{\alpha}\left( \frac{-\alpha}{e^{-\alpha}} \right) \\
+	&\leq 0 
+\end{align*}
+so there must be a maximum at $ x = e^\frac{1}{\alpha} $. Then evaluating we get that
+$$
+	\frac{\log(x)}{x^\alpha} \Big|_{x = e^\frac{1}{\alpha}} = \frac{1}{e\alpha}.
+$$
+
+\qed
+\end{document}
+
+
