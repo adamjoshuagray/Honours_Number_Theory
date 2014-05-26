@@ -27,24 +27,149 @@ the Dirichlet density of the set of all primes.
 
 First note that
 $$
-	\int_0^\infty e^{t(1-s)} dt = \frac{1}{s-1}
-$$
-and
-$$
-	\int_0^\infty  e^{t(1-s)} + e^{-t}dt = 1 + \frac{1}{s-1}
+	\int_1^\infty \frac{1}{t^s} dt = \frac{1}{s-1}.
 $$
 
 So we wish to show that 
 
 $$
-	\int_0^\infty e^{t(1-s)} dt \leq \sum_{n=1}^\infty \frac{1}{n^s} \leq \int_0^\infty  e^{t(1-s)} + e^{-t}dt
+	\int_1^\infty \frac{1}{t^s} dt \leq \sum_{n=1}^\infty \frac{1}{n^s}
+$$
+
+and
+$$
+	\sum_{n=2}^\infty \frac{1}{n^s} \leq \int_1^\infty \frac{dt}{t^s} 
 $$
 
 which is equivelent to showing that
 
+\begin{align}
+	\label{ineq-1}
+	\sum_{n=1}^\infty \int_{n}^{n+1} \frac{dt}{t^s} \leq \sum_{n=1}^\infty \int_{n-1}^{n} \frac{dt}{\lceil t \rceil^s}
+\end{align}
+
+and
+
+\begin{align}
+	\label{ineq-2}
+	\sum_{n=2}^\infty \int_{n-1}^{n} \frac{dt}{\lceil t \rceil^s} \leq \sum_{n=2}^\infty \int_{n-1}^n \frac{dt}{t^s}.
+\end{align}
+
+By the integral estimation lemma we see that each term in \eqref{ineq-1}
 $$
-	\sum_{n=1}^\infty \int_{n-1}^n e^{t(1-s)} dt \leq \sum_{n=1}^\infty \int_{n-1}^{n} \frac{1}{\lceil x \rceil^s} dx \leq \sum_{n=1}^\infty \int_{n-1}^n  e^{t(1-s)} + e^{-t}dt
+	\int_{n}^{n+1} \frac{dt}{t^s} \leq \frac{1}{n^s}
 $$
+and we also have that
+$$
+	\int_{n}^{n+1} \frac{dt}{\lceil t \rceil^s} = \frac{1}{n^s}
+$$
+so clearly 
+$$
+	\int_{n}^{n+1} \frac{dt}{t^s} \leq \int_{n}^{n+1} \frac{dt}{\lceil t \rceil^s}
+$$
+and hence \eqref{ineq-1} holds.
+
+In a similar manner for \eqref{ineq-2} we have that 
+$$
+	\int_{n-1}^n \frac{dt}{t^s} \geq \frac{1}{n^s}
+$$
+so we have that
+$$
+	\int_{n-1}^{n} \frac{dt}{\lceil t \rceil^s} \leq \int_{n-1}^n \frac{dt}{t^s}
+$$
+and \eqref{ineq-2} follows.
+
+\subsection*{Part b}
+
+By multiplying all terms of the result of part a we get that
+$$
+	1 \leq (s-1)\zeta(s) \leq 1 + (s-1)
+$$
+
+and so
+$$
+	1 \leq \lim_{s \lra 1^+} (s-1)\zeta(s) \leq \lim_{s\lra 1^+} 1 + (s-1)
+$$
+which immidiatly implies
+
+$$
+	\lim_{s \lra 1^+} (s-1) \zeta(s) = 1.
+$$
+
+\qed
+
+\subsubsection*{Part c}
+
+Taking the log of the result of part a we get that
+
+$$
+	\log(\frac{1}{s-1}) \leq \log(\zeta(s)) \leq \log(1 + \frac{1}{s-1}).
+$$
+which means that
+\begin{align}
+	\label{ineq-3}
+	1 \leq \frac{\log(\zeta(s))}{\log\left( \frac{1}{s-1}\right)} \leq \frac{\log \left( 1 + \frac{1}{s-1} \right)}{\log\left( \frac{1}{s-1}\right)}.
+\end{align}
+
+We now evalutate
+\begin{align*}
+	\lim_{s \lra 1^+} \frac{\log \left( 1 + \frac{1}{s-1} \right)}{\log\left( \frac{1}{s-1}\right)} &= \lim_{s \lra 1^+}\frac{\frac{1}{1+\frac{1}{s-1}}\left( \frac{-1}{(s-1)^2}\right)}{\frac{1}{\frac{1}{s-1}}\left( \frac{-1}{(s-1)^2}\right)} \\
+		&= \lim_{s \lra 1^+} \frac{\frac{(s-1)}{s}}{(s-1)} \\
+		&= 1
+\end{align*}
+so by taking limits of \eqref{ineq-3} we get that 
+
+$$
+	\lim_{s \lra 1^+} \frac{\log(\zeta(s))}{\log(\frac{1}{s-1})} = 1
+$$
+
+This is completely unsuprising as it means that the set of all primes has Dirichlet density 1.
+
+\qed
+
+\section*{Question 2}
+
+\subsection*{Part a}
+
+Prove that if $ p $ is prime and $ s > 2 $ then
+$$
+	1 + \frac{\phi(p)}{p^s} + \frac{\phi(p^2)}{p^{2s}} + \cdots = \frac{1-p^{-s}}{1-p^{1-s}}.
+$$
+
+\subsection*{Part b}
+
+Deduce that for $ s > 2 $ that $ \sum_{n=1}^\infty \frac{\phi(n)}{n^s} = \frac{\zeta(s-1)}{\zeta(s)} $.
+
+\subsubsection*{Solution}
+
+\subsubsection*{Part a}
+Note that for any prime $ p $ we have that
+\begin{align*}
+	\frac{\phi(p^0)}{p^0} + \frac{\phi(p^1)}{p^1} + \frac{\phi(p^2)}{p^2} + \cdots 
+		&= 1 + \frac{p}{p^2} - \frac{1}{p^s} + \frac{p^2}{p^{2s}} - \frac{p}{p^{2s}} + \cdots \\
+		& \text{ and by reordering we get } \\
+		&= 1 + \left( \frac{p}{p^2} \right)^1+ \left( \frac{p}{p^2} \right)^2 + \left( \frac{p}{p^2} \right)^3 + \cdots \\
+		& \ \ \ - \frac{1}{p^s} - \frac{p}{p^{2s}} - \frac{p^2}{p^{3s}} - \cdots \\
+		&= (p^{1-s})^0 + (p^{1-s})^1 + (p^{1-s})^2 + \cdots \\
+		& \ \ \ - \frac{1}{p} \left( (p^{1-s})^1 + (p^{1-s})^2 + \cdots \right) \\
+		& \text{ and by the geometric sum formula we get } \\
+		&= \frac{1}{1-p^{1-s}} + \frac{1}{p} \left( \frac{p^{1-s}}{1-p^{1-s}} \right) \\
+		&= \frac{1-p^{-s}}{1-p^{1-s}}.
+\end{align*}
+\qed
+
+\subsubsection*{Part b}
+
+Since $ \phi $ is a multiplicative function we can apply the result in the lecture notes to say that
+
+\begin{align*}
+	\sum_{n=1}^\infty \frac{\phi(n)}{n^s} &= \prod_p \left( \frac{\phi(p^0)}{p^0} + \frac{\phi(p^1)}{p^1} + \frac{\phi(p^2)}{p^2} + \cdots  \right) \\
+	& \text{ and by the above result } \\
+	&= \prod_p \left( \frac{1-p^{-s}}{1-p^{s-1}} \right) \\
+	&= \frac{\zeta(s-1)}{\zeta(s)}
+\end{align*}
+
+\qed
 
 \section*{Question 3}
 
@@ -87,8 +212,10 @@ Also note that
 		& \text{ and by using the observation above} \\
 		&= \sum_{n=1}^\infty M(n) \int_{n-1}^n \frac{s}{x^{s+1}} dx \\
 		&= \sum_{n=1}^\infty \int_{n-1}^n \frac{s M(x)}{x^{s+1}} dx \\
-		&= s \int_1^\infty\frac{M(x)}{x^{s+1}} dx
+		&= s \int_1^\infty\frac{M(x)}{x^{s+1}} dx.
 \end{align*}
+
+\qed
 
 \subsubsection*{Part b}
 
@@ -111,11 +238,15 @@ of its imaginary component, i.e.
 
 $$ |x^{\sigma + it}| = |e^{\ln(x)(\sigma + it)}| = |e^{\ln(x)\sigma}|. $$
 
+
+\qed
 \subsubsection*{Part c}
 If you can prove that $ M(x) = O(x^{\frac{1}{2} + \epsilon }) $ then the integral converges for all $ \sigma > \frac{1}{2} + \epsilon $
 and hence $ \zeta(s) = \zeta(\sigma + it) \neq 0 $ for any choice of $ \epsilon > 0 $. This would mean that the only non-trivial zeros
 must have $ \sigma \leq \frac{1}{2} $. The functional equation strengthens this by symetry to say $ \sigma = \frac{1}{2} $ for any non-trivial
 zero of the Riemann-Zeta function.
+
+\qed
 
 \end{document}
 
