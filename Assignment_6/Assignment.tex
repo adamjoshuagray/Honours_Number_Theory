@@ -71,6 +71,92 @@ $$
 $$
 
 \qed
+
+\section*{Question 2}
+
+\subsection*{Part a}
+Assuming that 
+$$
+	\lim_{x \lra \infty} \frac{\pi(x)\log(x)}{x} = 1
+$$
+show that
+$$
+	\lim_{x \lra \infty} \frac{\log(\pi(x))}{\log(x)} = 1.
+$$
+\subsection*{Part b}
+Deduce that 
+$$
+	\lim_{x \lra \infty} \frac{\pi(x)\log(pi(x))}{x} = 1.
+$$
+
+\subsection*{Part c}
+If $ p_n $ denotes that $n$th prime, show that the PNT implies 
+$$
+	\lim_{n \lra \infty } \frac{n \log(n)}{p_n} = 1.
+$$
+(This says that the $n$th primes is `roughly' $ n\log(n) $ for large $n$.)
+
+\subsubsection*{Solutions}
+\subsubsection*{Part a}
+Given
+$$
+	\lim_{x \lra \infty} \frac{\pi(x)\log(x)}{x} = 1
+$$
+we take the $ log $ of both sides to get
+$$
+	\lim_{x \lra \infty} \log(\pi(x)) + \log(\log(x)) - \log(x) = 0
+$$
+and dividing by $ \log(x) $ we get that
+$$
+	\lim_{x \lra \infty} \frac{\log(\pi(x)) + \log(\log(x)) - \log(x)}{\log(x)} = 0.
+$$
+
+Now see that
+\begin{align*}
+	\lim_{x \lra \infty} \frac{\log(\log(x))}{\log(x)} &= \lim_{x \lra \infty} \frac{\frac{1}{x \log(x)}}{\frac{1}{x}} \\
+		&= \lim_{x \lra \infty} \frac{1}{\log(x)} \\
+		&= 0.
+\end{align*}
+
+and 
+
+\begin{align*}
+	\lim_{x \lra \infty} \frac{\log(\pi(x)) + \log(\log(x)) - \log(x)}{\log(x)} &= \lim_{x \lra \infty} \frac{\log(\pi(x))}{\log(x)} - 1 \\
+		&= 0
+\end{align*}
+and so the result follows.
+\qed
+\subsubsection*{Part b}
+
+The assumption of \textbf{part a} is essentially that
+
+$$
+	\pi(x) \sim \frac{x}{\log(x)}
+$$
+or equivelently 
+$$
+	\frac{\pi(x)}{x} \sim \frac{1}{\log(x)}
+$$
+
+so we can deduce that from \textbf{part a} that
+\begin{align*}
+	\lim_{x \lra \infty} \frac{\log(\pi(x))}{\log(x)} &= \lim_{x \lra \infty} \frac{\pi(x) \log(\pi(x))}{x} \\
+		\text{ and so } \\
+	\lim_{x \lra \infty} \frac{\pi(x) \log(\pi(x))}{x} &= 1.
+\end{align*}
+\qed
+\subsubsection*{Part c}
+The prime number theorem asserts that the assumption in \textbf{part a} is infact correct.
+
+We can write the result of \textbf{part b} as
+\begin{align*}
+	\lim_{p_n \lra \infty} \frac{n \log(n)}{p_n} &= 1
+\end{align*}
+or equivelently as
+\begin{align*}
+	\lim_{n \lra \infty} \frac{n \log(n)}{p_n} &= 1
+\end{align*}
+\qed
 \end{document}
 
 
