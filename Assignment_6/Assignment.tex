@@ -72,6 +72,54 @@ $$
 
 \qed
 
+\subsubsection*{Part c}
+
+We can write
+\begin{align*}
+	\psi(x) - \vartheta(x) &= \sum_{1 \leq m \leq \log_2(x)} \vartheta(x^\frac{1}{m}) - \vartheta(x) \\
+		&= \sum_{2 \leq m \leq \log_2(x)} \vartheta(x^\frac{1}{m}).
+\end{align*}
+Now using the result of \textbf{part a} we can write
+
+\begin{align*}
+	\sum_{2 \leq m \leq \log_2(x)} \vartheta(x^\frac{1}{m}) &\leq \sum_{2 \leq m \leq \log_2(x)} 2x^\frac{1}{m} \\
+		&\leq 2x^\frac{1}{2} + \sum_{3 \leq m \leq \log_2(x)} 2x^\frac{1}{m} \\
+		&\leq 2x^\frac{1}{2} + \sum_{3 \leq m \leq \log_2(x)} 2x^\frac{1}{3} \\
+		&\leq 2x^\frac{1}{2} + \frac{2}{\log(2)} \frac{\log(x)}{x^\frac{1}{6}} x^\frac{1}{2}.
+\end{align*}
+
+Now by applying the result of \textbf{part b} we can see that
+$$
+	\frac{\log(x)}{x^\frac{1}{6}} \leq \frac{6}{e}
+$$
+so we have that 
+\begin{align*}
+	2x^\frac{1}{2} + \frac{2}{\log(2)} \frac{\log(x)}{x^\frac{1}{6}} x^\frac{1}{2} \leq x^\frac{1}{2} \left( 2 + \frac{2}{\log(2)} \frac{6}{e} \right).
+\end{align*}
+Now by numerical evaluation we see that 
+$$
+	\left( 2 + \frac{2}{\log(2)} \frac{6}{e} \right) < 9
+$$
+and so 
+$$
+	\psi(x) - \vartheta(x) \leq 9x^\frac{1}{2}.
+$$
+
+\subsubsection*{Part d}
+By exploiting the result of \textbf{part c} we see that
+\begin{align*}
+	0 \leq \lim_{x \lra \infty} \left( \frac{\psi(x)}{x} - \frac{\vartheta(x)}{x}\right) &\leq \lim_{x \lra \infty} \frac{9x^\frac{1}{2}}{x} \\
+		&= 0
+\end{align*}
+so 
+$$
+	\lim_{x \lra \infty} \frac{\psi(x)}{x} = \lim_{x \lra \infty} \frac{\vartheta(x)}{x}
+$$
+which means that
+$$
+	\lim_{x \lra \infty} \frac{\psi(x)}{x} = 1 \Leftrightarrow \lim_{x \lra \infty} \frac{\vartheta(x)}{x} = 1.
+$$
+\qed
 \section*{Question 2}
 
 \subsection*{Part a}
