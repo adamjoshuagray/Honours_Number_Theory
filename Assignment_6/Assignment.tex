@@ -104,7 +104,7 @@ and so
 $$
 	\psi(x) - \vartheta(x) \leq 9x^\frac{1}{2}.
 $$
-
+\qed
 \subsubsection*{Part d}
 By exploiting the result of \textbf{part c} we see that
 \begin{align*}
@@ -205,6 +205,40 @@ or equivelently as
 	\lim_{n \lra \infty} \frac{n \log(n)}{p_n} &= 1
 \end{align*}
 \qed
+
+\section*{Question 3}
+
+Use the PNT to show heuristically that there should be about $ \pi(n) $ primes between $ n^2 $ and $ (n+1)^2 $.
+
+\subsubsection*{Solution}
+
+THe prime nunmber theorem states that
+$$
+	\pi(x) \sim \frac{x}{\log(x)}
+$$
+so we can write
+$$
+	\pi(n^2) \sim \frac{n^2}{2\log(n)}
+$$
+and
+$$
+	\pi((n+1)^2) \sim \frac{(n+1)^2}{2\log(n+1)}
+$$
+so we can say that ``heuristically''
+\begin{align*}
+	\pi((n+1)^2) - \pi(n^2) \sim  \frac{(n+1)^2}{2\log(n+1)} - \frac{n^2}{2\log(n)}.
+\end{align*}
+Now as $ \log(n) \sim \log(n+1) $ we can write
+$$
+	\frac{(n+1)^2}{2\log(n+1)} \sim \frac{(n+1)^2}{2 \log(n)}
+$$
+and so
+\begin{align*}
+	\pi((n+1)^2) - \pi(n^2) &\sim  \frac{(n+1)^2}{2\log(n)} - \frac{n^2}{2\log(n)} \\
+		&= \frac{2n + 1}{2 \log(n)} \\
+		&\sim \frac{n}{\log(n)} \\
+		&\sim \pi(n).
+\end{align*}
 \end{document}
 
 
