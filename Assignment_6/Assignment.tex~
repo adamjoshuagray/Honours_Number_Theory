@@ -10,113 +10,235 @@
 \unswtitle
 
 \section*{Question 1}
+
+Suppose $ x > 2 $ and let $ m $ be the largest integer such that $ 2^m \leq x $.
+
 \subsection*{Part a}
-Use the comparison test for series to prove that for  $ s > 11 $, (s real),
-$$
-	\frac{1}{s-1} \leq \zeta(s) \leq 1 + \frac{1}{s-1}.
-$$
-\subsection*{Part b}
-Deduce that $ \lim_{s \lra 1^+} (s-1)\zeta(s) = 1 $.
+Use the definition of $ \psi(x) $ to deduce that $ \psi(x) \geq \vartheta(x) $ and conclude from Tutorial problem 1 that
+$ \vartheta(x) \leq 2x $.
+
 \subsection*{Part c}
-Further show that $ \frac{\log(\zeta(s))}{\log(\frac{1}{s-1})} \lra 1 $ as $ s \lra 1^+ $, and explain what this means in terms of 
-the Dirichlet density of the set of all primes.
+
+Show that $ \frac{\log(x) }{x^\alpha} $ has a maximum of $ \frac{1}{\alpha e} $
+
+\subsection*{Part d}
+
+Deduce that $ \\psi(x) - \vartheta(x) \leq 9x^\frac{1}{2} $.
+
+\subsection*{Part e}
+
+Conclude that, as $ x \lra \infty $, $ \frac{\psi(x)}{x} \lra 1 \Leftrightarrow \frac{\vartheta(x)}{x} \lra 1 $.
 
 \subsubsection*{Solution}
 
 \subsubsection*{Part a}
 
-First note that
-$$
-	\int_0^\infty e^{t(1-s)} dt = \frac{1}{s-1}
-$$
-and
-$$
-	\int_0^\infty  e^{t(1-s)} + e^{-t}dt = 1 + \frac{1}{s-1}
-$$
+We have that 
 
-So we wish to show that 
-
-$$
-	\int_0^\infty e^{t(1-s)} dt \leq \sum_{n=1}^\infty \frac{1}{n^s} \leq \int_0^\infty  e^{t(1-s)} + e^{-t}dt
-$$
-
-which is equivelent to showing that
-
-$$
-	\sum_{n=1}^\infty \int_{n-1}^n e^{t(1-s)} dt \leq \sum_{n=1}^\infty \int_{n-1}^{n} \frac{1}{\lceil x \rceil^s} dx \leq \sum_{n=1}^\infty \int_{n-1}^n  e^{t(1-s)} + e^{-t}dt
-$$
-
-\section*{Question 3}
-
-Let $ M(x) = \sum_{n \leq x} \mu(n) $.
-
-\subsection*{Part a}
-
-Use the fact that 
-$$
-	\frac{1}{\zeta(s)} = \sum_{n =1}^\infty \frac{\mu(n)}{n^s}
-$$
-for $ \sigma = \real(s) > 1 $, to deduce that 
-$$
-	\frac{1}{\zeta(s)} = s \int_1^\infty M(x)x^{-s-1} dx.
-$$
-
-\subsection*{Part b}
-Assume that $ M(x) = O(x^{\frac{1}{2} + \epsilon}) $, for any $ \epsilon > 0 $ is true and deduce 
-that the integral on the right convergess for $ \sigma > \frac{1}{2} + \epsilon $.
-
-\subsection*{Part c}
-
-Hence explain why $ M(x) = O(x^{\frac{1}{2} + \epsilon}) $, for any $ \epsilon > 0 $, implies the Riemann Hypothesis.
-
-\subsubsection*{Solutions}
-
-\subsubsection*{Part a}
-
-Firstly note that
 \begin{align*}
-	\int_{n}^{n+1} \frac{d}{dx}\left( \frac{1}{x^s} \right) dx &= -\int_{n}^{n+1}\frac{s}{x^{s+1}}dx \\
-		&= \left[ \frac{1}{x^{s+1}} \right]_{x = n}^{x=n+1} \\
-		&= \left( \frac{1}{(n+1)^{s+1}} - \frac{1}{(n^s)} \right).
+	\psi(x) &= \sum_{m \leq \log_2(x)} \vartheta(x^\frac{1}{m}) \\
+		&= \vartheta(x) + \underbrace{\sum_{2 \leq m \leq \log_2(x)} \vartheta(x^\frac{1}{m})}_{\geq 0} \\
 \end{align*}
+so it is obvious that $ \psi(x) \geq \vartheta(x) $.
 
-Also note that
-\begin{align*}
-	\sum_{n=1}^\infty \frac{\mu(n)}{n^s} &= \sum_{n=1}^\infty \frac{M(n) - M(n-1)}{n^s} \\
-		&= \sum_{n=1}^\infty M(n) \left( \frac{1}{n^s} - \frac{1}{(n+1)^s} \right) \\
-		& \text{ and by using the observation above} \\
-		&= \sum_{n=1}^\infty M(n) \int_{n-1}^n \frac{s}{x^{s+1}} dx \\
-		&= \sum_{n=1}^\infty \int_{n-1}^n \frac{s M(x)}{x^{s+1}} dx \\
-		&= s \int_1^\infty\frac{M(x)}{x^{s+1}} dx
-\end{align*}
+From the tutorial problems we have that $ \psi(x) \leq 2x $ so it must also be that $ \vartheta(x) \leq 2x $.
+
 
 \subsubsection*{Part b}
 
-Let $ K(x) = \frac{M(x)}{x^{s+1}} $ then
+See that 
 \begin{align*}
-	K(x) &= \frac{O(x^{\frac{1}{2} + \epsilon})}{x^{s+1}} \\
-		&= O(x^{-s-\frac{1}{2} + \epsilon})
+	\frac{d}{dx} \frac{log(x)}{x^\alpha} &= \frac{\frac{1}{x} x^\alpha - \alpha \log(x) x^{\alpha-1}}{x^{2\alpha}} \\
+		&= \underbrace{\frac{x^{\alpha-1}( 1 - \alpha \log(x)}{x^{2 \alpha}}}_{\circledast}.
 \end{align*}
-then we have that 
+Now setting $ \circledast = 0 $
+we have that 
+
 \begin{align*}
-	\int_1^\infty K(x) dx &= \int_1^\infty O(x^{-s-\frac{1}{2} + \epsilon}) dx \\
-		&< \infty
+	\log(x) &= \frac{1}{\alpha} \\
+	x &= e^{\frac{1}{\alpha}}.
 \end{align*}
-so long as if $ s = \sigma + it $, then $ \sigma > \frac{1}{2} + \epsilon $, by the $ p $ test.
 
 
+Now checking
+\begin{align*}
+	\frac{d^2}{dx^2} \frac{\log(x)}{x^\alpha} \Big|_{x = e^{\frac{1}{\alpha}}} &= e^{\frac{-2-\alpha}{2}}(1-\alpha)(1 - 1) + e^\frac{-1-\alpha}{\alpha}\left( \frac{-\alpha}{e^{-\alpha}} \right) \\
+	&\leq 0 
+\end{align*}
+so there must be a maximum at $ x = e^\frac{1}{\alpha} $. Then evaluating we get that
+$$
+	\frac{\log(x)}{x^\alpha} \Big|_{x = e^\frac{1}{\alpha}} = \frac{1}{e\alpha}.
+$$
 
-We don't need to consider the imaginary component because, $| x^s | $ is independent
-of its imaginary component, i.e. 
-
-$$ |x^{\sigma + it}| = |e^{\ln(x)(\sigma + it)}| = |e^{\ln(x)\sigma}|. $$
+\qed
 
 \subsubsection*{Part c}
-If you can prove that $ M(x) = O(x^{\frac{1}{2} + \epsilon }) $ then the integral converges for all $ \sigma > \frac{1}{2} + \epsilon $
-and hence $ \zeta(s) = \zeta(\sigma + it) \neq 0 $ for any choice of $ \epsilon > 0 $. This would mean that the only non-trivial zeros
-must have $ \sigma \leq \frac{1}{2} $. The functional equation strengthens this by symetry to say $ \sigma = \frac{1}{2} $ for any non-trivial
-zero of the Riemann-Zeta function.
 
+We can write
+\begin{align*}
+	\psi(x) - \vartheta(x) &= \sum_{1 \leq m \leq \log_2(x)} \vartheta(x^\frac{1}{m}) - \vartheta(x) \\
+		&= \sum_{2 \leq m \leq \log_2(x)} \vartheta(x^\frac{1}{m}).
+\end{align*}
+Now using the result of \textbf{part a} we can write
+
+\begin{align*}
+	\sum_{2 \leq m \leq \log_2(x)} \vartheta(x^\frac{1}{m}) &\leq \sum_{2 \leq m \leq \log_2(x)} 2x^\frac{1}{m} \\
+		&\leq 2x^\frac{1}{2} + \sum_{3 \leq m \leq \log_2(x)} 2x^\frac{1}{m} \\
+		&\leq 2x^\frac{1}{2} + \sum_{3 \leq m \leq \log_2(x)} 2x^\frac{1}{3} \\
+		&\leq 2x^\frac{1}{2} + \frac{2}{\log(2)} \frac{\log(x)}{x^\frac{1}{6}} x^\frac{1}{2}.
+\end{align*}
+
+Now by applying the result of \textbf{part b} we can see that
+$$
+	\frac{\log(x)}{x^\frac{1}{6}} \leq \frac{6}{e}
+$$
+so we have that 
+\begin{align*}
+	2x^\frac{1}{2} + \frac{2}{\log(2)} \frac{\log(x)}{x^\frac{1}{6}} x^\frac{1}{2} \leq x^\frac{1}{2} \left( 2 + \frac{2}{\log(2)} \frac{6}{e} \right).
+\end{align*}
+Now by numerical evaluation we see that 
+$$
+	\left( 2 + \frac{2}{\log(2)} \frac{6}{e} \right) < 9
+$$
+and so 
+$$
+	\psi(x) - \vartheta(x) \leq 9x^\frac{1}{2}.
+$$
+\qed
+\subsubsection*{Part d}
+By exploiting the result of \textbf{part c} we see that
+\begin{align*}
+	0 \leq \lim_{x \lra \infty} \left( \frac{\psi(x)}{x} - \frac{\vartheta(x)}{x}\right) &\leq \lim_{x \lra \infty} \frac{9x^\frac{1}{2}}{x} \\
+		&= 0
+\end{align*}
+so 
+$$
+	\lim_{x \lra \infty} \frac{\psi(x)}{x} = \lim_{x \lra \infty} \frac{\vartheta(x)}{x}
+$$
+which means that
+$$
+	\lim_{x \lra \infty} \frac{\psi(x)}{x} = 1 \Leftrightarrow \lim_{x \lra \infty} \frac{\vartheta(x)}{x} = 1.
+$$
+\qed
+\section*{Question 2}
+
+\subsection*{Part a}
+Assuming that 
+$$
+	\lim_{x \lra \infty} \frac{\pi(x)\log(x)}{x} = 1
+$$
+show that
+$$
+	\lim_{x \lra \infty} \frac{\log(\pi(x))}{\log(x)} = 1.
+$$
+\subsection*{Part b}
+Deduce that 
+$$
+	\lim_{x \lra \infty} \frac{\pi(x)\log(pi(x))}{x} = 1.
+$$
+
+\subsection*{Part c}
+If $ p_n $ denotes that $n$th prime, show that the PNT implies 
+$$
+	\lim_{n \lra \infty } \frac{n \log(n)}{p_n} = 1.
+$$
+(This says that the $n$th primes is `roughly' $ n\log(n) $ for large $n$.)
+
+\subsubsection*{Solutions}
+\subsubsection*{Part a}
+Given
+$$
+	\lim_{x \lra \infty} \frac{\pi(x)\log(x)}{x} = 1
+$$
+we take the $ log $ of both sides to get
+$$
+	\lim_{x \lra \infty} \log(\pi(x)) + \log(\log(x)) - \log(x) = 0
+$$
+and dividing by $ \log(x) $ we get that
+$$
+	\lim_{x \lra \infty} \frac{\log(\pi(x)) + \log(\log(x)) - \log(x)}{\log(x)} = 0.
+$$
+
+Now see that
+\begin{align*}
+	\lim_{x \lra \infty} \frac{\log(\log(x))}{\log(x)} &= \lim_{x \lra \infty} \frac{\frac{1}{x \log(x)}}{\frac{1}{x}} \\
+		&= \lim_{x \lra \infty} \frac{1}{\log(x)} \\
+		&= 0.
+\end{align*}
+
+and 
+
+\begin{align*}
+	\lim_{x \lra \infty} \frac{\log(\pi(x)) + \log(\log(x)) - \log(x)}{\log(x)} &= \lim_{x \lra \infty} \frac{\log(\pi(x))}{\log(x)} - 1 \\
+		&= 0
+\end{align*}
+and so the result follows.
+\qed
+\subsubsection*{Part b}
+
+The assumption of \textbf{part a} is essentially that
+
+$$
+	\pi(x) \sim \frac{x}{\log(x)}
+$$
+or equivalently 
+$$
+	\frac{\pi(x)}{x} \sim \frac{1}{\log(x)}
+$$
+
+so we can deduce that from \textbf{part a} that
+\begin{align*}
+	\lim_{x \lra \infty} \frac{\log(\pi(x))}{\log(x)} &= \lim_{x \lra \infty} \frac{\pi(x) \log(\pi(x))}{x} \\
+		\text{ and so } \\
+	\lim_{x \lra \infty} \frac{\pi(x) \log(\pi(x))}{x} &= 1.
+\end{align*}
+\qed
+\subsubsection*{Part c}
+The prime number theorem asserts that the assumption in \textbf{part a} is in fact correct.
+
+We can write the result of \textbf{part b} as
+\begin{align*}
+	\lim_{p_n \lra \infty} \frac{n \log(n)}{p_n} &= 1
+\end{align*}
+or equivalently as
+\begin{align*}
+	\lim_{n \lra \infty} \frac{n \log(n)}{p_n} &= 1
+\end{align*}
+\qed
+
+\section*{Question 3}
+
+Use the PNT to show heuristically that there should be about $ \pi(n) $ primes between $ n^2 $ and $ (n+1)^2 $.
+
+\subsubsection*{Solution}
+
+The prime number theorem states that
+$$
+	\pi(x) \sim \frac{x}{\log(x)}
+$$
+so we can write
+$$
+	\pi(n^2) \sim \frac{n^2}{2\log(n)}
+$$
+and
+$$
+	\pi((n+1)^2) \sim \frac{(n+1)^2}{2\log(n+1)}
+$$
+so we can say that ``heuristically''
+\begin{align*}
+	\pi((n+1)^2) - \pi(n^2) \sim  \frac{(n+1)^2}{2\log(n+1)} - \frac{n^2}{2\log(n)}.
+\end{align*}
+Now as $ \log(n) \sim \log(n+1) $ we can write
+$$
+	\frac{(n+1)^2}{2\log(n+1)} \sim \frac{(n+1)^2}{2 \log(n)}
+$$
+and so
+\begin{align*}
+	\pi((n+1)^2) - \pi(n^2) &\sim  \frac{(n+1)^2}{2\log(n)} - \frac{n^2}{2\log(n)} \\
+		&= \frac{2n + 1}{2 \log(n)} \\
+		&\sim \frac{n}{\log(n)} \\
+		&\sim \pi(n).
+\end{align*}
 \end{document}
 
 
